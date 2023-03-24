@@ -5,7 +5,8 @@ import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   {component:LandingComponent,path:''},
-  {component:ForcastComponent,path:'forcast'}
+  {component:ForcastComponent,path:'forcast'},
+  {component:LandingComponent,path:'landing'}
 ];
 
 @NgModule({

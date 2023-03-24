@@ -1,4 +1,29 @@
-<div class="col-sm-10">
-    <input type="email" class="form-control" id="inputEmail3" placeholder="Enter City Name">
+<body>
+  <div class="col-sm-10">
+    <input type="email" class="form-control" id="inputEmail3" placeholder="Enter City Name" [(ngModel)]="inputData" autocomplete="off">
   </div>
-<button (click)="getweatherdata()" id="btn" class="btn btn-primary btn-lg active">Click here to get Weather details</button>
+  <button (click)="getweatherdata()" id="btn" class="btn btn-primary btn-lg active">Click here to get Weather
+    details</button>
+  <button routerLink="/landing" class="btn btn-primary btn-lg active" id="bckbtn">Back</button>
+
+  <div id="container" *ngIf="weatherDetails">
+    <div id="imgd" [ngSwitch]="image" >
+      <img [src]="scattered" alt="" *ngSwitchCase="'scattered clouds'" width="100px"> 
+      <img [src]="broken" alt="" *ngSwitchCase="'broken clouds'" width="100px">
+      <img [src]="rainy" alt="" *ngSwitchCase="'rainy'" width="100px">
+      <img [src]="smoke" alt="" *ngSwitchCase="'smoke'" width="100px">
+      <img [src]="sunny" alt="" *ngSwitchDefault width="100px">
+    </div>
+    <div id="title" *ngIf="weatherDetails">
+      <h3> City Name:{{weatherDetails.name}}</h3>
+      <h3>Temp:{{weatherDetails.main.temp}}<sup>o</sup>C</h3>
+      <h3>Min-temp:{{weatherDetails.main.temp_max}}<sup>o</sup>C</h3>
+      <h3>Max-temp:{{weatherDetails.main.temp_min}}<sup>o</sup>C</h3>
+      <h3>Pressure:{{weatherDetails.main.pressure}}hPa</h3>
+      <h3>Humidity:{{weatherDetails.main.humidity}}g.m-3</h3>
+      <h3>WindSpeed:{{weatherDetails.wind.speed}}m/s</h3>
+      <h3>Country:{{weatherDetails.sys.country}}</h3>
+      <h3>Weather Description:{{weatherDetails?.weather[0].description}}</h3>
+    </div>
+  </div>
+</body>

@@ -8,20 +8,27 @@ import { DataService } from '../data.service';
 })
 export class ForcastComponent {
   inputData:any;
+  image="rainy"
+  scattered:any="assets/weather (1).png";
+  broken:any="assets/weather-icon-android-3.jpg"
+  rainy:any="assets/sunny and rainy.png"
+  smoke:any="assets/kindpng_1780516.png"
+  sunny:any="assets/Sunny Weather.png"
+  weatherDetails: any;
   constructor(private service:DataService){}
-  dummy="https://api.openweathermap.org/data/2.5/weather?q=mumbai&appid=d85d6b62cd5b3d11e07f09beffd5f12b&units=metric"
   url1="https://api.openweathermap.org/data/2.5/weather?q=";
-  url2="&appid=d85d6b62cd5b3d11e07f09beffd5f12b&units=metric"
+  url2="&appid=0dff09323c7d5e87c82d71246c689790&units=metric"
   getweatherdata(){
     if(this.inputData){
     let city=this.inputData.toLowerCase()
     console.log(city)
     let getAPIurl=this.url1+city+this.url2;
     console.log(getAPIurl);
-    console.log(this.dummy);
     this.service.getApi(getAPIurl).subscribe((res:any)=>{
-      let data=[res]
-      console.log(data);
+      this.image=res.weather[0].description
+      this.weatherDetails=res
+      console.log(this.weatherDetails);
+      console.log(this.image);
     })
   }
   }
