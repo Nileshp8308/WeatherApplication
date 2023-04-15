@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
-
+import {DatePipe} from  '@angular/common'
 @Component({
   selector: 'app-forcast',
   templateUrl: './forcast.component.html',
@@ -14,10 +14,13 @@ export class ForcastComponent {
   rainy:any="assets/sunny and rainy.png"
   smoke:any="assets/kindpng_1780516.png"
   sunny:any="assets/Sunny Weather.png"
+  Night:any="assets/night-mode.png"
   weatherDetails: any;
-  constructor(private service:DataService){}
   url1="https://api.openweathermap.org/data/2.5/weather?q=";
   url2="&appid=0dff09323c7d5e87c82d71246c689790&units=metric"
+
+  constructor(private service:DataService,private date:DatePipe){}
+
   getweatherdata(){
     if(this.inputData){
     let city=this.inputData.toLowerCase()
@@ -32,4 +35,5 @@ export class ForcastComponent {
     })
   }
   }
+
 }

@@ -12,18 +12,19 @@
       <img [src]="broken" alt="" *ngSwitchCase="'broken clouds'" width="100px">
       <img [src]="rainy" alt="" *ngSwitchCase="'rainy'" width="100px">
       <img [src]="smoke" alt="" *ngSwitchCase="'smoke'" width="100px">
+      <!-- <img [src]="Night" alt="" *ngSwitchCase="'Night'" width="100px"> -->
       <img [src]="sunny" alt="" *ngSwitchDefault width="100px">
     </div>
     <div id="title" *ngIf="weatherDetails">
-      <h3> City Name:{{weatherDetails.name}}</h3>
-      <h3>Temp:{{weatherDetails.main.temp}}<sup>o</sup>C</h3>
-      <h3>Min-temp:{{weatherDetails.main.temp_max}}<sup>o</sup>C</h3>
-      <h3>Max-temp:{{weatherDetails.main.temp_min}}<sup>o</sup>C</h3>
-      <h3>Pressure:{{weatherDetails.main.pressure}}hPa</h3>
-      <h3>Humidity:{{weatherDetails.main.humidity}}g.m-3</h3>
-      <h3>WindSpeed:{{weatherDetails.wind.speed}}m/s</h3>
-      <h3>Country:{{weatherDetails.sys.country}}</h3>
-      <h3>Weather Description:{{weatherDetails?.weather[0].description}}</h3>
+      <h3> City Name &nbsp;: &nbsp;{{weatherDetails.name}}</h3>
+      <h3>Temp &nbsp;:&nbsp;{{weatherDetails.main.temp}}<sup>o</sup>C</h3>
+      <h3>Min-temp &nbsp;: &nbsp;{{weatherDetails.main.temp_max}}<sup>o</sup>C</h3>
+      <h3>Max-temp &nbsp;: &nbsp;{{weatherDetails.main.temp_min}}<sup>o</sup>C</h3>
+      <h3>Pressure &nbsp;: &nbsp;{{weatherDetails.main.pressure}}hPa</h3>
+      <h3>Humidity &nbsp;: &nbsp;{{weatherDetails.main.humidity}}g.m-3</h3>
+      <h3>WindSpeed &nbsp;: &nbsp;{{weatherDetails.wind.speed}}m/s</h3>
+      <h3>Country &nbsp;: &nbsp;{{weatherDetails.sys.country}}</h3>
+      <h3>Weather Description &nbsp;: &nbsp;{{weatherDetails?.weather[0].description}}</h3>
     </div>
   </div>
 </body>
